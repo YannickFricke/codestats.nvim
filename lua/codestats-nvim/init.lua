@@ -141,7 +141,7 @@ end
 
 ---Shuts down the timer loop
 function M.shutdown()
-  a.will_block(async(function ()
+  async_utils.block_on(async(function ()
     -- Send the remaining XP to CodeStats
     M.send_pulses()
   end)())
