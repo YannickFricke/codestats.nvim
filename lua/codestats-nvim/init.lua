@@ -16,9 +16,6 @@ local galaxyline_available, galaxyline = pcall(require, 'galaxyline')
 -- Local variables
 local timer = nil
 
--- The interval in seconds which should be used to calculate the new timestamp when the XP should be sent
-local interval = 60
-
 -- The last timestamp when the XP where sent to CodeStats
 local last_timestamp = utils.unix_timestamp()
 
@@ -28,6 +25,10 @@ local semaphore = async_utils.Semaphore.new(1)
 local opts = {
   token = nil,
   endpoint = "https://codestats.net",
+  -- The interval in seconds which should be used to calculate the new timestamp when the XP should be sent
+  interval = 60,
+
+  -- internal things
   version = "0.0.1"
 }
 
@@ -55,11 +56,13 @@ function M.setup(options)
 
   local merged_options = vim.tbl_extend('keep', options, {
     endpoint = "https://codestats.net",
-    token = nil
+    token = nil,
+    interval = 60,
   })
 
   opts["token"] = merged_options["token"] or vim.env.CODESTATS_API_KEY
   opts["endpoint"] = merged_options["endpoint"]
+  opts["interval"] = merged_options["interval"]
 
   assert(isempty(opts.token) == false, "The CodeStats API token cannot be nil or empty")
 
@@ -74,7 +77,7 @@ function M.setup(options)
   -- Start the timer loop
   timer:start(1000, 1000, function ()
     -- Check if the last_timestamp + interval is greater than the current unix timestamp
-    if last_timestamp + interval > utils.unix_timestamp() then
+    if last_timestamp + opts.interval > utils.unix_timestamp() then
       return
     end
 
