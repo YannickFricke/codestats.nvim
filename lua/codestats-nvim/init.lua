@@ -61,6 +61,8 @@ function M.setup(options)
   opts["token"] = merged_options["token"] or vim.env.CODESTATS_API_KEY
   opts["endpoint"] = merged_options["endpoint"]
 
+  assert(isempty(opts.token) == false, "The CodeStats API token cannot be nil or empty")
+
   vim.api.nvim_command("augroup CodeStats")
     vim.api.nvim_command("autocmd InsertCharPre,TextChanged * lua require'codestats-nvim'.insert_xp()")
     vim.api.nvim_command("autocmd VimLeavePre * lua require'codestats-nvim'.shutdown()")
@@ -87,8 +89,6 @@ function M.setup(options)
 end
 
 function M.send_pulses()
-  assert(isempty(opts.token) == false, "The CodeStats API token cannot be nil or empty")
-
   local xps = M.get_xps()
 
   if #xps == 0 then
