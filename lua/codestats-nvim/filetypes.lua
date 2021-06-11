@@ -13,7 +13,9 @@ end
 local ignored_filetypes = {
   "startify",
   "TelescopePrompt",
-  "NvimTree"
+  "NvimTree",
+  "tsplayground",
+  "lspinfo"
 }
 
 function M.is_filetype_ignored(filetype)
