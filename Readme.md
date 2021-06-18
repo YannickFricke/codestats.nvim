@@ -11,12 +11,6 @@ This plugin is only available for NeoVIM with LUA support (version 0.5 and above
 ### Packer
 
 ```lua
--- Until https://github.com/nvim-lua/plenary.nvim/pull/167 got merged into plenary
-use {
-    'YannickFricke/plenary.nvim',
-    branch = "patch-1"
-}
-
 -- Initialize with explicit token
 use {
     'YannickFricke/codestats.nvim',
@@ -26,9 +20,7 @@ use {
             token = "MY-CODESTATS-MACHINE-TOKEN"
         })
     end,
-    -- Comment the next line in, when the pull request got merged
-    -- requires = {{'nvim-lua/plenary.nvim'}}
-
+    requires = {{'nvim-lua/plenary.nvim'}}
 }
 
 -- Initialize via the CODESTATS_API_KEY environment variable
@@ -38,8 +30,7 @@ use {
     config = function()
         require('codestats-nvim').setup()
     end,
-    -- Comment the next line in, when the pull request got merged
-    -- requires = {{'nvim-lua/plenary.nvim'}}
+    requires = {{'nvim-lua/plenary.nvim'}}
 }
 ```
 
