@@ -1,7 +1,6 @@
 local vim = vim
 local uv = vim.loop
 local curl = require "plenary.curl"
-local json = require "lunajson"
 -- Global variables
 local utils =  require'codestats-nvim.utils'
 local filetypes =  require'codestats-nvim.filetypes'
@@ -103,7 +102,7 @@ function M.send_pulses()
     ["xps"] = xps
   }
 
-  local body = json.encode(plain_body)
+  local body = vim.json.encode(plain_body)
   local headers = {
     content_type = "application/json",
     ["X-API-Token"] = opts.token,
