@@ -14,7 +14,6 @@ This plugin is only available for NeoVIM with LUA support (version 0.5 and above
 -- Initialize with explicit token
 use {
     'YannickFricke/codestats.nvim',
-    rocks = "lunajson",
     config = function()
         require('codestats-nvim').setup({
             token = "MY-CODESTATS-MACHINE-TOKEN"
@@ -26,7 +25,6 @@ use {
 -- Initialize via the CODESTATS_API_KEY environment variable
 use {
     'YannickFricke/codestats.nvim',
-    rocks = "lunajson",
     config = function()
         require('codestats-nvim').setup()
     end,
