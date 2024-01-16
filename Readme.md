@@ -75,8 +75,3 @@ All filetypes which should be ignored are defined in `./lua/codestats-nvim/filet
 
 To get the filetype of the current buffer see [Getting the filetype of the current buffer](#getting-the-filetype-of-the-current-buffer).
 
-### The plugin doesn't count deletions
-
-Yes this is a serious thing. Currently I didn't found a nice way to detect deletions.
-
-Sadly the `autocmd`s don't offer an event way to detect single deletions.
