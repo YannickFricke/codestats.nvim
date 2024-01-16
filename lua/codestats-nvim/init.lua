@@ -66,7 +66,7 @@ function M.setup(options)
   assert(isempty(opts.token) == false, "The CodeStats API token cannot be nil or empty")
 
   vim.api.nvim_command("augroup CodeStats")
-    vim.api.nvim_command("autocmd InsertCharPre,TextChanged * lua require'codestats-nvim'.insert_xp()")
+    vim.api.nvim_command("autocmd TextChangedI,TextChanged * lua require'codestats-nvim'.insert_xp()")
     vim.api.nvim_command("autocmd VimLeavePre * lua require'codestats-nvim'.shutdown()")
   vim.api.nvim_command("augroup end")
 
