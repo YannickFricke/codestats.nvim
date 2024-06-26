@@ -88,6 +88,7 @@ local mapped_filetypes = {
   ["vbnet"] = "Visual Basic .NET",
   ["vim"] = "VimL",
   ["yaml"] = "YAML",
+  ["zig"] = "Zig",
   ["zsh"] = "Shell Script (Zsh)",
 }
 
