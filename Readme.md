@@ -1,8 +1,10 @@
+
+
 # codestats.nvim
 
 A [CodeStats.net](https://codestats.net/) client written for [NeoVIM](https://github.com/neovim/neovim) in LUA.
 
-## Preqrequisites
+## Prerequisites
 
 This plugin is only available for NeoVIM with LUA support (version 0.5 and above).
 
@@ -74,4 +76,3 @@ Otherwise you have the possibility to remap existing languages in Code::Stats it
 All filetypes which should be ignored are defined in `./lua/codestats-nvim/filetypes.lua` in the `ignored_filetypes` variable.
 
 To get the filetype of the current buffer see [Getting the filetype of the current buffer](#getting-the-filetype-of-the-current-buffer).
-
